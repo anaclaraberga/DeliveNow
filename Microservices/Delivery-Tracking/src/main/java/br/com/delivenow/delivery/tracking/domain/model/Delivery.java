@@ -5,6 +5,7 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,6 +37,10 @@ public class Delivery {
     private ContactPoint recipient;
 
     private List<Item> items = new ArrayList<>();
+
+    public List<Item> getItems() {
+        return Collections.unmodifiableList(this.items);
+    }
 
     public static Delivery draft() {
         Delivery delivery = new Delivery();
